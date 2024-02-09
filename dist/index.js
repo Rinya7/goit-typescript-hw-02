@@ -77,3 +77,27 @@ function getPromise() {
 getPromise().then((data) => {
     console.log(data);
 });
+function compare(top, bottom) {
+    return {
+        ...top,
+        ...bottom,
+    };
+}
+//Завдання 3
+function merge(objA, objB) {
+    return Object.assign(objA, objB);
+}
+class Component {
+    constructor(props) {
+        this.props = props;
+    }
+}
+class Pagare extends Component {
+    pageInfo() {
+        console.log(this.props.title);
+    }
+}
+function createOrUpdateUser(initialValues) {
+    // Оновлення користувача
+}
+createOrUpdateUser({ email: "user@mail.com", password: "password123" });

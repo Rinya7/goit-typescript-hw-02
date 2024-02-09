@@ -106,8 +106,8 @@ const page2: Page = {
 
 //Завдання 1
 
-function getPromise() {
-  return new Promise((resolve) => {
+function getPromise(): Promise<(string | number)[]> {
+  return new Promise<(string | number)[]>((resolve) => {
     resolve(["Text", 50]);
   });
 }
@@ -115,3 +115,65 @@ function getPromise() {
 getPromise().then((data) => {
   console.log(data);
 });
+
+//Завдання 2
+
+type AllType = {
+  name: string;
+  position: number;
+  color: string;
+  weight: number;
+};
+
+function compare<T extends keyof AllType>(
+  top: Pick<AllType, T>,
+  bottom: Pick<AllType, T>
+): Pick<AllType, T> {
+  return {
+    ...top,
+    ...bottom,
+  };
+}
+
+//Завдання 3
+
+function merge<A extends object, B extends object>(objA: A, objB: B) {
+  return Object.assign(objA, objB);
+}
+
+//Завдання 4
+
+interface Props {
+  title: string;
+}
+class Component<T> {
+  constructor(public props: T) {}
+}
+
+class Pagare extends Component<Props> {
+  pageInfo(): void {
+    console.log(this.props.title);
+  }
+}
+
+//Завдання 5
+
+interface KeyValuePair<K, V> {
+  key: K;
+  value: V;
+}
+
+//Завдання 6
+
+type User = {
+  name: string;
+  surname: string;
+  email: string;
+  password: string;
+};
+
+function createOrUpdateUser(initialValues: Partial<User>) {
+  // Оновлення користувача
+}
+
+createOrUpdateUser({ email: "user@mail.com", password: "password123" });
