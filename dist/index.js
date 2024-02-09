@@ -67,3 +67,13 @@ const page2 = {
     accounts: ["Alex"],
     status: "close",
 };
+//Generic
+//Завдання 1
+function getPromise() {
+    return new Promise((resolve) => {
+        resolve(["Text", 50]);
+    });
+}
+getPromise().then((data) => {
+    console.log(data);
+});
