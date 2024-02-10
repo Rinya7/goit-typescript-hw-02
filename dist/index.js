@@ -1,4 +1,3 @@
-"use strict";
 //Завдання 1
 let age = 50;
 let named = "Max";
@@ -101,3 +100,16 @@ function createOrUpdateUser(initialValues) {
     // Оновлення користувача
 }
 createOrUpdateUser({ email: "user@mail.com", password: "password123" });
+//Завдання 7
+export var UserRole;
+(function (UserRole) {
+    UserRole["admin"] = "admin";
+    UserRole["editor"] = "editor";
+    UserRole["guest"] = "guest";
+})(UserRole || (UserRole = {}));
+// Замініть наступний код на версію за допомогою Record
+const RoleDescription = {
+    [UserRole.admin]: "Admin User",
+    [UserRole.editor]: "Editor User",
+    [UserRole.guest]: "Guest User",
+};

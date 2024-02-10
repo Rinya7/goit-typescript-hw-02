@@ -177,3 +177,38 @@ function createOrUpdateUser(initialValues: Partial<User>) {
 }
 
 createOrUpdateUser({ email: "user@mail.com", password: "password123" });
+
+//Завдання 7
+
+export enum UserRole {
+  admin = "admin",
+  editor = "editor",
+  guest = "guest",
+}
+
+// Замініть наступний код на версію за допомогою Record
+const RoleDescription: Record<UserRole, string> = {
+  [UserRole.admin]: "Admin User",
+  [UserRole.editor]: "Editor User",
+  [UserRole.guest]: "Guest User",
+};
+
+//Завдання 8
+
+type Errors = {
+  email?: string[];
+  firstName?: string[];
+  lastName?: string[];
+  phone?: string[];
+};
+
+type Form = {
+  email: string | null;
+  firstName: string | null;
+  lastName: string | null;
+  phone: string | null;
+  errors: Errors;
+};
+
+// Реалізуйте Params так, щоб унеможливити поле 'errors' з типу Form
+type Params = Omit<Form, "errors">;
